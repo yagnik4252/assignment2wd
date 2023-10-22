@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Utility Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        input, button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Assignment 3</h1>
+    
+    <!-- 1. Reverse a String -->
+    <h2>Reverse a String</h2>
+    <input type="text" id="reverseInput" placeholder="Enter a string">
+    <button onclick="reverseString()">Reverse</button>
+    <p id="reverseOutput"></p>
+
+    <!-- 2. Check Palindrome -->
+    <h2>Check Palindrome</h2>
+    <input type="text" id="palindromeInput" placeholder="Enter a string/number">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="palindromeOutput"></p>
+
+    <!-- 3. Tip Calculator -->
+    <h2>Tip Calculator</h2>
+    <input type="number" id="subtotal" placeholder="Enter subtotal">
+    <input type="number" id="tipPercentage" placeholder="Enter tip percentage">
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <p id="tipOutput"></p>
+
+    <script>
+        // Reverse a String
+        function reverseString() {
+            const inputString = document.getElementById("reverseInput").value;
+            const reversedString = inputString.split('').reverse().join('');
+            document.getElementById("reverseOutput").textContent = `Reversed String: ${reversedString}`;
+        }
+
+        // Check Palindrome
+        function checkPalindrome() {
+            const input = document.getElementById("palindromeInput").value.toLowerCase();
+            const reversedInput = input.split('').reverse().join('');
+            const isPalindrome = input === reversedInput;
+            if (isPalindrome) {
+                document.getElementById("palindromeOutput").textContent = `${input} is a palindrome!`;
+            } else {
+                document.getElementById("palindromeOutput").textContent = `${input} is not a palindrome.`;
+            }
+        }
+
+        // Tip Calculator
+        function calculateTotal() {
+            const subtotal = parseFloat(document.getElementById("subtotal").value);
+            const tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+            if (!isNaN(subtotal) && !isNaN(tipPercentage)) {
+                const tipAmount = (subtotal * tipPercentage) / 100;
+                const totalAmount = subtotal + tipAmount;
+                document.getElementById("tipOutput").textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
+            } else {
+                document.getElementById("tipOutput").textContent = "Please enter valid numbers.";
+            }
+        }
+    </script>
+</body>
+</html>
