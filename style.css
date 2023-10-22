@@ -1,0 +1,14 @@
+/* You can add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    margin: 20px 0;
+}
+input, button {
+    padding: 5px;
+    margin: 10px;
+}
